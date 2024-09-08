@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excise and Customs Tax Calculator</title>
+    <link rel="stylesheet" href="/stylesheets/custom.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="box">
+                <div class="grid">
+                    <header>
+                        <h1>Customs & Excise Duty</h1>
+                    </header>
+            
+                    <section class="tax-section">
+                        <div class="tax-card">
+                            <h2>Customs Duty</h2>
+                            <p>Tax on imports/exports to regulate trade.</p>
+                            <ul>
+                                <li>Levied on goods crossing borders.</li>
+                                <li>Varies by product type.</li>
+                            </ul>
+                        </div>
+            
+                        <div class="tax-card">
+                            <h2>Excise Duty</h2>
+                            <p>Tax on domestic manufacture of specific goods.</p>
+                            <ul>
+                                <li>Applies to items like alcohol and tobacco.</li>
+                                <li>Partly replaced by GST.</li>
+                            </ul>
+                        </div>
+                    </section>
+                </div>
+                <div class="grid-right">
+                    <header>
+                        <h1>Excise & Customs Tax Calculator</h1>
+                        <p>Calculate the excise and customs duties for imported and manufactured goods in India.</p>
+                    </header>
+            
+                    <section class="calculator-section">
+                        <div class="form-group">
+                            <label for="valueOfGoods">Value of Goods (₹):</label>
+                            <input type="number" id="valueOfGoods" placeholder="Enter value of goods">
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="customsRate">Customs Duty Rate (%):</label>
+                            <input type="number" id="customsRate" placeholder="Enter customs duty rate">
+                        </div>
+            
+                        <div class="form-group">
+                            <label for="exciseRate">Excise Duty Rate (%):</label>
+                            <input type="number" id="exciseRate" placeholder="Enter excise duty rate">
+                        </div>
+            
+                        <button onclick="calculateTaxes()">Calculate</button>
+            
+                        <div class="result">
+                            <h3>Results:</h3>
+                            <p>Customs Duty: ₹<span id="customsResult">0.00</span></p>
+                            <p>Excise Duty: ₹<span id="exciseResult">0.00</span></p>
+                            <p>Total Tax: ₹<span id="totalTaxResult">0.00</span></p>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            <div class="button-next"><a href="/wealth"><button>Next</button></a></div>
+
+        </div>
+    </div>
+
+    <script>
+        function calculateTaxes() {
+    // Get input values
+    let valueOfGoods = parseFloat(document.getElementById('valueOfGoods').value);
+    let customsRate = parseFloat(document.getElementById('customsRate').value);
+    let exciseRate = parseFloat(document.getElementById('exciseRate').value);
+
+    // Validate inputs
+    if (isNaN(valueOfGoods) || isNaN(customsRate) || isNaN(exciseRate) || valueOfGoods <= 0) {
+        alert("Please enter valid numbers in all fields.");
+        return;
+    }
+
+    // Calculate taxes
+    let customsDuty = (valueOfGoods * customsRate) / 100;
+    let exciseDuty = (valueOfGoods * exciseRate) / 100;
+    let totalTax = customsDuty + exciseDuty;
+
+    // Update results in the UI
+    document.getElementById('customsResult').textContent = customsDuty.toFixed(2);
+    document.getElementById('exciseResult').textContent = exciseDuty.toFixed(2);
+    document.getElementById('totalTaxResult').textContent = totalTax.toFixed(2);
+}
+
+    </script>
+</body>
+</html>

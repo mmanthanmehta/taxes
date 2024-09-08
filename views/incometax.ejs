@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap demo</title>
+    <link rel="stylesheet" href="/stylesheets/income.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="main">
+      <div class="container h-40 w-60 bg-red-400">
+       
+        <h1>Income Tax in India (FY 2023-24)</h1>
+
+        <div class="box">
+            <div class="grid">
+                <div>
+                    <h3>Tax Slabs (New Regime)</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Income Range</th>
+                                <th>Tax Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Up to ₹2.5 Lakh</td><td>Nil</td></tr>
+                            <tr><td>₹2.5 Lakh - ₹5 Lakh</td><td>5%</td></tr>
+                            <tr><td>₹5 Lakh - ₹7.5 Lakh</td><td>10%</td></tr>
+                            <tr><td>₹7.5 Lakh - ₹10 Lakh</td><td>15%</td></tr>
+                            <tr><td>₹10 Lakh - ₹12.5 Lakh</td><td>20%</td></tr>
+                            <tr><td>Above ₹15 Lakh</td><td>30%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+    
+                <div>
+                    <h3>Key Deductions (Old Regime)</h3>
+                    <ul>
+                        <li>Sec 80C: ₹1.5 Lakh (Investments)</li>
+                        <li>Sec 80D: Health Insurance</li>
+                        <li>Sec 24: Home Loan Interest</li>
+                        <li>Sec 80G: Donations</li>
+                    </ul>
+                </div>
+    
+                <div>
+                    <h3>Exemptions</h3>
+                    <ul>
+                        <li>House Rent Allowance</li>
+                        <li>Leave Travel Allowance</li>
+                        <li>Agricultural Income</li>
+                        <li>Gratuity</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="grid-right">
+            <div class="calculator-container">
+            <h1>Income Tax Calculator</h1>
+    
+            <div class="input-group">
+                <label for="income">Enter your Annual Income (₹):</label><br>
+                <input type="number" id="income" placeholder="Enter Income Here">
+            </div>
+            
+            <button onclick="calculateTax()">Calculate Tax</button>
+    
+            <p id="result"></p>
+        </div>
+            </div>
+        </div>
+        <div class="button-next"><a href="/corporate"><button>Next</button></a></div>
+      </div>
+    </div>
+    <script>
+        function calculateTax() {
+            const income = document.getElementById('income').value;
+            let tax = 0;
+            
+            if (income <= 250000) {
+                tax = 0;
+            } else if (income > 250000 && income <= 500000) {
+                tax = (income - 250000) * 0.05;
+            } else if (income > 500000 && income <= 750000) {
+                tax = (250000 * 0.05) + ((income - 500000) * 0.10);
+            } else if (income > 750000 && income <= 1000000) {
+                tax = (250000 * 0.05) + (250000 * 0.10) + ((income - 750000) * 0.15);
+            } else if (income > 1000000 && income <= 1250000) {
+                tax = (250000 * 0.05) + (250000 * 0.10) + (250000 * 0.15) + ((income - 1000000) * 0.20);
+            } else if (income > 1250000 && income <= 1500000) {
+                tax = (250000 * 0.05) + (250000 * 0.10) + (250000 * 0.15) + (250000 * 0.20) + ((income - 1250000) * 0.25);
+            } else {
+                tax = (250000 * 0.05) + (250000 * 0.10) + (250000 * 0.15) + (250000 * 0.20) + (250000 * 0.25) + ((income - 1500000) * 0.30);
+            }
+
+            // Display the result
+            const resultElement = document.getElementById('result');
+            resultElement.style.display = 'block';
+            resultElement.innerHTML = `Based on your income of ₹${income}, your total tax is: ₹${tax.toFixed(2)}`;
+        }
+        const slabs = document.querySelectorAll('.slab');
+        const result = document.getElementById('result');
+        const selectedSlab = document.getElementById('selectedSlab');
+        const playAgainBtn = document.getElementById('playAgain');
+    
+        slabs.forEach(slab => {
+            slab.addEventListener('click', () => {
+                selectedSlab.textContent = slab.textContent;
+                result.classList.remove('hidden');
+                playAgainBtn.classList.remove('hidden');
+            });
+        });
+    
+        playAgainBtn.addEventListener('click', () => {
+            result.classList.add('hidden');
+            playAgainBtn.classList.add('hidden');
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  </body>
+</html>

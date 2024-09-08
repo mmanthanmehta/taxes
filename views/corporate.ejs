@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/stylesheets/corporate.css">
+
+    <title>Document</title>
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <header>
+                <h1>Corporate Tax in India</h1>
+            </header>
+            <div class="box">
+                <!-- Left side (Overview & Tax Rates) -->
+                <div class="row">
+                    <section id="overview">
+                        <p><strong>Corporate tax</strong> is levied on a company's net income or profit. In India, both domestic and foreign companies are taxed with rates based on turnover and income type.</p>
+                    </section>
+            
+                    <section id="tax-rates">
+                        <h2>Tax Rates</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Company Type</th>
+                                    <th>Tax Rate</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Domestic (&lt; ₹400 Cr)</td>
+                                    <td>25%</td>
+                                </tr>
+                                <tr>
+                                    <td>Domestic (&gt; ₹400 Cr)</td>
+                                    <td>30%</td>
+                                </tr>
+                                <tr>
+                                    <td>Foreign (Royalty Income)</td>
+                                    <td>50%</td>
+                                </tr>
+                                <tr>
+                                    <td>Foreign (Other Income)</td>
+                                    <td>40%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </section>
+            
+                    <section id="concessions">
+                        <p><strong>Concessions:</strong> Startups and manufacturing firms enjoy lower tax rates.</p>
+                    </section>
+                </div>
+                
+                <!-- Right side (Tax Calculator) -->
+                <div class="row-right">
+                    <section id="calculator">
+                        <h2>Corporate Tax Calculator</h2>
+                        <label for="turnover">Annual Turnover (₹):</label>
+                        <input type="number" id="turnover" placeholder="Enter Turnover" required>
+                        
+                        <label for="income">Net Income/Profit (₹):</label>
+                        <input type="number" id="income" placeholder="Enter Net Income" required>
+            
+                        <label for="companyType">Company Type:</label>
+                        <select id="companyType">
+                            <option value="domestic">Domestic Company</option>
+                            <option value="foreign">Foreign Company</option>
+                        </select>
+            
+                        <button onclick="calculateTax()">Calculate Tax</button>
+            
+                        <div id="result">
+                            <h2>Calculated Tax: ₹<span id="taxAmount">0</span></h2>
+                        </div>
+                    </section>
+                </div>
+            </div>
+            
+            <footer>
+                <div class="button-next"><a href="/capital"><button>Next</button></a></div>
+            </footer>
+        </div>
+    </div>
+    <script>
+        function calculateTax() {
+    // Get input values
+    let turnover = document.getElementById('turnover').value;
+    let income = document.getElementById('income').value;
+    let companyType = document.getElementById('companyType').value;
+    
+    // Convert input to numbers
+    turnover = parseFloat(turnover);
+    income = parseFloat(income);
+    
+    let taxRate = 0;
+
+    if (companyType === "domestic") {
+        // Domestic company tax rates
+        if (turnover <= 400000000) {
+            taxRate = 0.25; // 25% tax rate for turnover up to ₹400 crore
+        } else {
+            taxRate = 0.30; // 30% tax rate for turnover above ₹400 crore
+        }
+    } else if (companyType === "foreign") {
+        // Foreign company tax rates
+        taxRate = 0.40; // General 40% tax rate for foreign companies
+    }
+
+    // Calculate tax
+    let taxAmount = income * taxRate;
+
+    // Display result
+    document.getElementById('taxAmount').innerText = taxAmount.toFixed(2);
+}
+
+    </script>
+</body>
+</html>

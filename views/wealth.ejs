@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wealth Tax in India</title>
+    <link rel="stylesheet" href="/stylesheets/wealth.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <div class="box">
+                <div class="grid">
+                    <header>
+                        <h1>Wealth Tax in India</h1>
+                    </header>
+                    <main>
+                        <section class="description">
+                            <p>Wealth Tax was a tax on the net wealth of individuals and HUFs, applicable above ₹30 lakhs. It was abolished in 2015.</p>
+                        </section>
+                
+                        <section class="features">
+                            <h2>Key Features</h2>
+                            <ul>
+                                <li>Applicable to individuals & HUFs.</li>
+                                <li>Tax on assets like real estate, cash, and jewelry.</li>
+                                <li>Abolished in 2015 due to low revenue.</li>
+                            </ul>
+                        </section>
+                
+                        <section class="faq">
+                            <h2>FAQs</h2>
+                            <p><strong>Why was it abolished?</strong> Minimal revenue vs. collection cost.</p>
+                            <p><strong>What replaced it?</strong> Focus shifted to Income Tax.</p>
+                        </section>
+                    </main>
+                </div>
+                <div class="grid-left">
+                    <header>
+                        <h1>Wealth Tax Calculator</h1>
+                    </header>
+                    <main>
+                        <section class="calculator">
+                            <h2>Calculate Your Wealth Tax</h2>
+                            <label for="assets">Total Assets (₹):</label>
+                            <input type="number" id="assets" placeholder="Enter total assets" required>
+                            <button id="calculate-btn">Calculate Wealth Tax</button>
+                            <p id="result"></p>
+                        </section>
+                    </main>
+                
+                </div>
+            </div>
+            <footer>
+                <p>&copy; 2024 Wealth Tax Calculator</p>
+            </footer>
+            <div class="button-next" style="margin-top: 10px;"><a href="/quiz"><button>Next</button></a></div>
+
+        </div>
+    </div>
+    <script>
+        document.getElementById('calculate-btn').addEventListener('click', function() {
+    const assets = parseFloat(document.getElementById('assets').value);
+    const exemptionLimit = 3000000; // ₹30 lakhs
+    const taxRate = 0.01; // 1% Wealth Tax
+
+    let tax = 0;
+    if (assets > exemptionLimit) {
+        tax = (assets - exemptionLimit) * taxRate;
+    }
+
+    const result = tax > 0 ? `Your Wealth Tax is: ₹${tax.toFixed(2)}` : "No Wealth Tax applicable.";
+    document.getElementById('result').textContent = result;
+});
+
+    </script>
+</body>
+</html>

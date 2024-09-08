@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Capital Gains Tax</title>
+    <link rel="stylesheet" href="/stylesheets/capital.css">
+</head>
+<body>
+    <div class="main">
+        <div class="container">
+            <header>
+                <h1>Capital Gains Tax (India)</h1>
+            </header>
+    
+            <section class="content">
+                <div class="tax-summary">
+                    <div class="type short-term">
+                        <h3>Short-Term Gains (STCG)</h3>
+                        <p><strong>Holding:</strong> Less than 36 months</p>
+                        <p><strong>Tax Rate:</strong> 15% (for listed shares)</p>
+                    </div>
+    
+                    <div class="type long-term">
+                        <h3>Long-Term Gains (LTCG)</h3>
+                        <p><strong>Holding:</strong> More than 36 months</p>
+                        <p><strong>Tax Rate:</strong> 10% (exceeds ₹1 lakh)</p>
+                    </div>
+                </div>
+    
+                <div class="type exemptions">
+                    <h3>Exemptions</h3>
+                    <p>Reinvest in property under <strong>Sections 54/54F</strong>.</p>
+                </div>
+            </section>
+
+            <div class="calculator-container">
+                <header>
+                    <h1>Capital Gains Tax Calculator</h1>
+                </header>
+        
+                <section class="calculator">
+                    <form id="taxForm">
+                        <div class="form-group">
+                            <label for="income">Enter Capital Gain Amount (₹):</label>
+                            <input type="number" id="income" placeholder="e.g. 200000" required>
+                        </div>
+        
+                        <div class="form-group">
+                            <label for="gainType">Select Capital Gain Type:</label>
+                            <select id="gainType" required>
+                                <option value="stcg">Short-Term Capital Gain (STCG)</option>
+                                <option value="ltcg">Long-Term Capital Gain (LTCG)</option>
+                            </select>
+                        </div>
+        
+                        <button type="submit">Calculate Tax</button>
+                    </form>
+        
+                    <div id="result" class="result"></div>
+                </section>
+        
+                <footer>
+                    <p>&copy; 2024 Capital Gains Tax Calculator</p>
+                </footer>
+            </div>
+            <div class="button-next"><a href="/gst"><button>Next</button></a></div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('taxForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get input values
+    const income = parseFloat(document.getElementById('income').value);
+    const gainType = document.getElementById('gainType').value;
+    let taxRate;
+    let taxAmount;
+
+    // Determine tax rate based on capital gain type
+    if (gainType === 'stcg') {
+        taxRate = 0.15; // Short-term capital gains tax (15%)
+    } else if (gainType === 'ltcg') {
+        taxRate = income > 100000 ? 0.10 : 0; // Long-term capital gains tax (10% on gains exceeding ₹1 lakh)
+    }
+
+    // Calculate tax amount
+    taxAmount = income > 100000 && gainType === 'ltcg' ? (income - 100000) * taxRate : income * taxRate;
+
+    // Display result
+    const resultDiv = document.getElementById('result');
+    resultDiv.innerHTML = `<strong>Tax Payable: ₹${taxAmount.toFixed(2)}</strong>`;
+});
+
+    </script>
+</body>
+</html>

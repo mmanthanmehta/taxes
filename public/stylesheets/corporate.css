@@ -1,0 +1,284 @@
+*{
+    padding: 0;
+    margin: 0%;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+html,body{
+    width: 100%;
+    height: 100%;
+}
+.main{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://images.unsplash.com/photo-1723987513091-4cc24f8e5c71?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.container{
+    width: 70vw;
+    height: 80vh;
+    background: #ffffff75;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+}
+.button-next{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    width: 90%;
+    max-width: 1200px;
+    /* background-color: white; */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+.box{
+    display: flex;
+    align-items: top;
+    gap: 10px;
+    width: 100%;
+    height: 85%;
+}
+h1 {
+    font-size: 24px;
+    color: #0073e6;
+    text-align: center;
+    margin-bottom: 10px;
+}
+.grid {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.grid-right{
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+}
+ h2 {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+.grid div {
+    flex: 1;
+    height: 90%;
+    padding: 10px;
+    margin: 5px;
+    /* border: 1px solid #ddd; */
+    border-radius: 5px;
+    background-color: #f9f9f942;
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+}
+header {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    font-size: 1.8em;
+}
+
+#overview {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#tax-rates h2 {
+    font-size: 1.4em;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+th {
+    background-color: #35495e;
+    color: #fff;
+}
+
+footer {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.8em;
+}
+
+#concessions {
+    text-align: center;
+    font-size: 0.9em;
+    margin-top: 10px;
+}
+
+header h1 {
+    font-size: 1.8em;
+    margin-bottom: 20px;
+}
+
+#calculator {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin: 10px 0 5px;
+    font-size: 1em;
+}
+
+input, select {
+    padding: 8px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    background-color: #35495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1em;
+}
+
+button:hover {
+    background-color: #2c3e50;
+}
+
+#result {
+    margin-top: 20px;
+}
+
+#result h2 {
+    font-size: 1.5em;
+    color: #35495e;
+}
+
+
+
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 2.2rem;
+    color: #35495e;
+}
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: 80%;
+}
+
+.row, .row-right {
+    flex: 1;
+    min-width: 350px;
+    background-color: #f0f0f52c;
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 8px;
+}
+
+section h2 {
+    font-size: 1.6rem;
+    color: #35495e;
+    margin-bottom: 15px;
+}
+
+#overview p, #concessions p {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 10px;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+th {
+    background-color: #35495e;
+    color: #fff;
+}
+
+#calculator {
+    margin-top: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 1rem;
+}
+
+input, select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #35495e;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #2c3e50;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: #333;
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #555;
+}
